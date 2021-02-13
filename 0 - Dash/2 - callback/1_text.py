@@ -22,7 +22,7 @@ app.layout = html.Div([
     Input(component_id='my-input', component_property='value')
 )
 def update_output_div(input_value):
-    return 'Output: {}'.format(input_value)
+    return ['Output: {}'.format(input_value), "text"]
 
 
 if __name__ == '__main__':
