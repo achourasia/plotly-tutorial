@@ -1,6 +1,6 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -31,6 +31,8 @@ app.layout = html.Div([
     Output('x^x', 'children'),
     Input('num-multi', 'value'))
 def callback_a(x):
+    if not x:
+        return None, None, None, None, None
     return x**2, x**3, 2**x, 3**x, x**x
 
 

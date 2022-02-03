@@ -1,6 +1,6 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -12,7 +12,7 @@ app.layout = html.Div([
     html.Div(["Input: ",
               dcc.Input(id='my-input', value='initial value', type='text')]),
     html.Br(),
-    html.Div(id='my-output'),
+    html.P(id='my-output'),
 
 ])
 
@@ -21,7 +21,7 @@ app.layout = html.Div([
     Output(component_id='my-output', component_property='children'),
     Input(component_id='my-input', component_property='value')
 )
-def update_output_div(input_value):
+def update_output_P(input_value):
     return ['Output: {}'.format(input_value), "text"]
 
 
